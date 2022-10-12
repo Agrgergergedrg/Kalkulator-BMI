@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&family=Noto+Sans:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator BMI</title>
+    
+</head>
+<body>
+    <header>
+        <strong>Kalkulator BMI</strong>
+    </header>
+    <main>
+        
+        <form >
+
+        </form>    
+
+        <form oninput="dane.value = parseInt(waga.value)/(parseInt(wzrost.value)/100*parseInt(wzrost.value)/100)">
+            <br><span>Jaki jest Twój wzrost?</span><br>
+                <br><input id="wzrost" name="wzrost" type="range"  value="0" min="100" max="250" step="1"><em>0</em><br>
+            <br><span>Jaka jest Twoja waga?</span><br>
+                <br><input type="range" name="waga" id="waga2" value="0" min="20" max="200" oninput="waga1.value = waga2.value">
+                <em><output  id="waga1">0</output></em><br>
+            <br><span>Twoje BMI wynosi:</span><br>
+                <br><output id="dane" type="number">0</output>
+        
+        </form>
+        <form name="zakres">
+            <fieldset><legend>Zakres:</legend>
+                <br><option class="lowest">wyłodzenie</option>poniżej 16.<br>
+                <br><option class="vLow">wychudzenie</option>16 - 16.99.<br>
+                <br><option class="Low">niedowaga</option>17 - 18.49.<br>
+                <br><option name="waga_prawidlowa">waga prawidłowa</option>18.5 - 24.99.<br>
+                <br><option class="Low">nadwaga</option>25 - 29.99.<br>
+                <br><option class="vLow">I stopień otyłości</option>30 - 34.99<br> 
+                <br><option class="lowest">II stopień otyłości</option>35 - 39.99.<br>
+                <br><option name="iii_stopien_otylosci">III stopień otyłości</option> powyżej 40. 
+            </fieldset>
+        </form>
+    </main>
+    <script src="js/index.js"></script>
+    <script>
+        const sliderValue = document.querySelector("em");
+        const inputSlider = document.querySelector("input");
+        inputSlider.oninput = (()=>{
+            let value = inputSlider.value;
+            sliderValue.textContent = value;
+        });
+        
+    </script>
+</body>
+</html>
